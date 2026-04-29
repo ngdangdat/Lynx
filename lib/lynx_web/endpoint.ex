@@ -60,6 +60,6 @@ defmodule LynxWeb.Endpoint do
   plug LynxWeb.Router
 
   def max_body_length do
-    Application.get_env(:lynx, __MODULE__, [])[:http_max_body_length] || 8_000_000
+    Application.get_env(:lynx, __MODULE__, [])[:http_max_body_length] || 500_000_000
   end
 end

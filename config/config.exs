@@ -21,7 +21,7 @@ config :lynx, LynxWeb.Endpoint,
   render_errors: [view: LynxWeb.ErrorView, accepts: ~w(html json), layout: false],
   pubsub_server: Lynx.PubSub,
   live_view: [signing_salt: "/FQ30bq7"],
-  http_max_body_length: String.to_integer(System.get_env("APP_HTTP_MAX_BODY_LENGTH") || "8000000")
+  http_max_body_length: String.to_integer(System.get_env("APP_HTTP_MAX_BODY_LENGTH") || "500000000")
 
 # Configures the mailer
 #
