@@ -48,10 +48,9 @@ defmodule LynxWeb.Endpoint do
 
   plug Plug.Telemetry, event_prefix: [:phoenix, :endpoint]
 
-  plug Plug.Parsers,
+  plug LynxWeb.Plug.RuntimeParsers,
     parsers: [:urlencoded, :multipart, :json],
     pass: ["*/*"],
-    length: Lynx.Config.max_body_length(),
     json_decoder: Phoenix.json_library()
 
   plug Plug.MethodOverride
