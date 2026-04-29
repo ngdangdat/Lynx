@@ -51,11 +51,15 @@ defmodule LynxWeb.Endpoint do
   plug Plug.Parsers,
     parsers: [:urlencoded, :multipart, :json],
     pass: ["*/*"],
-    length: Application.get_env(:lynx, __MODULE__, [])[:http_max_body_length] || 8_000_000,
+    length: max_body_length(),
     json_decoder: Phoenix.json_library()
 
   plug Plug.MethodOverride
   plug Plug.Head
   plug Plug.Session, @session_options
   plug LynxWeb.Router
+
+  defp max_body_length do
+    Application.get_env(:lynx, __MODULE__, [])[:http_max_body_length] || 8_000_000
+  end
 end
